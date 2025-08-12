@@ -34,3 +34,9 @@ class CartNotifier extends _$CartNotifier {
     state = {...state}..remove(product);
   }
 }
+
+@riverpod
+int cartTotal(ref) {
+  final cartProducts = ref.watch(cartNotifierProvider);
+  return cartProducts.fold(0, (total, item) => total + item.price);
+}
