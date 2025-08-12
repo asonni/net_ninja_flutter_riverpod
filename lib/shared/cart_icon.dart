@@ -9,7 +9,7 @@ class CartIcon extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final cartCount = ref.watch(cartNotifierProvider).length;
+    final numberOfItemsInCart = ref.watch(cartNotifierProvider).length;
     return Stack(
       children: [
         IconButton(
@@ -25,7 +25,7 @@ class CartIcon extends ConsumerWidget {
           },
           icon: const Icon(Icons.shopping_bag_outlined),
         ),
-        if (cartCount > 0)
+        if (numberOfItemsInCart > 0)
           Positioned(
             top: 5,
             left: 5,
@@ -38,7 +38,7 @@ class CartIcon extends ConsumerWidget {
                 color: Colors.blueAccent,
               ),
               child: Text(
-                cartCount.toString(),
+                numberOfItemsInCart.toString(),
                 style: TextStyle(color: Colors.white, fontSize: 10),
               ),
             ),
